@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Smart House</title>
+	<script src="component.js" type="text/javascript"></script>
+	<script src="smartdoor.js" type="text/javascript"></script>
+	<script src="facecontrol.js" type="text/javascript"></script>
+	<script src="smarthouse.js" type="text/javascript"></script>
+</head>
+
+<body id="smart-house">
+<p>Умный дом:</p><br /><div id="controls">
+		<button onclick="smartHouse.addComponent(FaceControl)">Включить сигнализацию</button> 
+		<button onclick="smartHouse.removeComponent('alarm')">Выключить сигнализацию</button>
+	<br />
+	</div>
+	<div id="controls">
+	<br />
+		<button onclick="smartHouse.addComponent(SmartDoor)">Создать дверь</button> 
+		<button onclick="smartHouse.toggleWindows(true)">Держать открытой</button>
+		<button onclick="smartHouse.toggleWindows(false)">Закрыть</button>
+		<button onclick="smartHouse.removeComponent('door')">Убрать дверь</button>
+		</div>
+		
+	
+<p>Объекты:</p><br />
+<ul id="componentContainer"></ul>
+
+<script>
+	var smartHouse = new SmartHouse(document.getElementById('componentContainer'));
+	smartHouse.render();
+</script>
+</body>
+</html>
